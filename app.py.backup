@@ -1,0 +1,83 @@
+from flask import Flask, render_template, request, url_for, redirect
+from flask_limiter import Limiter
+from flask_limiter.util import get_remote_address
+from pymongo import MongoClient
+from bson.objectid import ObjectId
+
+app = Flask(__name__)
+PATH = '/flaskapi/v1'
+client = MongoClient('129.153.51.240', 5907, username='mongoadmin', password='secret')
+db = client.flask_db
+todos = db.todos
+
+
+@app.route(PATH+'/', methods=('GET', 'POST'))
+def index():
+    if request.method=='POST':
+        content = request.form['content']
+        degree = request.form['degree']
+        todos.insert_one({'content': content, 'degree': degree})
+        return redirect(url_for('index'))
+
+    all_todos = todos.find()
+    return render_template('index.html', todos=all_todos)
+
+@app.post(PATH+'/<id>/delete/')
+def delete(id):
+    todos.delete_one({"_id": ObjectId(id)})
+    return redirect(url_for('index'))
+
+
+def parse_todo_doc(__doc):
+    return {
+            'id':__doc.get('id', 1),
+            'task':__doc.get('task', 'Task'),
+            'isCompleted':__doc.get('isCompleted', True)
+            }
+
+
+@app.route(PATH+'/todos')
+def get_all_todos_from_db():
+    # all_todo_items = todos.find()
+    all_todo_items = [parse_todo_doc(doc) for doc in todos.find()]
+    json_response = {'todos': all_todo_items, 'updated': '11 MAY 2022'}
+    json_headers = {'Access-Control-Allow-Origin': '*'}
+    return json_response, 200, json_headers
+
+@app.route(PATH+'/json')
+def get_json():
+    return {'created':'22 April 2022', 'updated':'10 MAY 2022', 'author':'Abhay'}
+
+
+"""
+Rate limiting quickstart
+https://flask-limiter.readthedocs.io/en/stable/
+"""
+limiter = Limiter(
+    app,
+    key_func=get_remote_address,
+    default_limits=["200 per day", "50 per hour"]
+)
+@app.route(PATH+"/rl/slow")
+@limiter.limit("1 per day")
+def slow():
+    return ":("
+
+@app.route(PATH+"/rl/medium")
+@limiter.limit("1/second", override_defaults=False)
+def medium():
+    return ":|"
+
+@app.route(PATH+"/rl/fast")
+def fast():
+    return ":)"
+
+@app.route(PATH+"/rl/ping")
+@limiter.exempt
+def ping():
+    return "PONG"
+
+
+
+if __name__ == '__main__':
+    app.run(host="0.0.0.0", port=int("5909"))
