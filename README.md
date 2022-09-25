@@ -21,7 +21,20 @@ sudo lsof -i:5909 | grep LISTEN
 sudo kill -9 <PID>
 ```
 
-# preview output of docker ps to check app status with docker
+# Docker related commands
+### command to run the flask API with docker
+```
+docker run -d -p 5909:5909 --name fapi python-docker
+```
+### command to build the flask app with docker
+```
+docker build --tag python-docker .
+```
+### command to delete all the unused resources in docker
+```
+docker system prune -a
+```
+### preview output of docker ps to check app status with docker
 ```
 ubuntu@docker:~/backend/flask_app$ docker ps
 CONTAINER ID   IMAGE              COMMAND                  CREATED        STATUS       PORTS                                         NAMES
