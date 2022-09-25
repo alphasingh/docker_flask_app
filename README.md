@@ -17,6 +17,9 @@ sudo lsof -i:5909 | grep LISTEN
 - Dockerize your flask app: https://www.freecodecamp.org/news/how-to-dockerize-a-flask-app/ 
 
 # using above PID, we can kill the process to stop the application manually
+```
+sudo kill -9 <PID>
+```
 
 # preview output of docker ps to check app status with docker
 ```
