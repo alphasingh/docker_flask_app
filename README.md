@@ -35,14 +35,18 @@ docker system prune -a
 
 # Manual commands without docker
 ### to enter the venv
-```. venv/bin/activate```
-
+```
+. venv/bin/activate
+```
 ### start application
-```python app.py```
-
-# using above PID, we can kill the process to stop the application manually
+```
+python app.py
+```
 ### find running application
-```sudo lsof -i:5909 | grep LISTEN```
+```
+sudo lsof -i:5909 | grep LISTEN
+```
+### using above PID, we can kill the process to stop the application manually
 ```
 sudo kill -9 <PID>
 ```
