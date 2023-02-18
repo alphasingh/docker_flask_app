@@ -6,7 +6,7 @@ from bson.objectid import ObjectId
 bp = Blueprint('todos', __name__)
 
 
-client = MongoClient('129.153.51.240', 5907, username='mongoadmin', password='secret')
+client = MongoClient('localhost', 27017)
 db = client.flask_db
 todos = db.todos
 
