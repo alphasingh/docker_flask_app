@@ -1,5 +1,12 @@
-# commands after entering the folder where app.py exists
-cd "~/backend/flask_app"
+# create a backend folder for separation and change directory
+mkdir backend
+cd backend/
+
+# clone the repository
+git clone https://github.com/alphasingh/docker_flask_app.git
+
+# enter the folder where app.py exists
+cd ~/backend/docker_flask_app
 
 # to enter the venv
 . venv/bin/activate
