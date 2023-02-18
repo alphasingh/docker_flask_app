@@ -28,6 +28,10 @@ ubuntu@docker:~/backend/flask_app$ docker ps
 CONTAINER ID   IMAGE              COMMAND                  CREATED        STATUS       PORTS                                         NAMES
 73cb8cb3f9c7   python-docker      "python3 -m flask ru…"   2 weeks ago    Up 2 weeks   0.0.0.0:5909->5909/tcp, :::5909->5909/tcp     fapi
 ```
+### command to stop the flask API with docker
+```
+docker stop fapi
+```
 ### command to delete all the unused resources in docker
 ```
 docker system prune -a
