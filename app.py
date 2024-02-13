@@ -1,8 +1,10 @@
-from flask import Flask, render_template, request, url_for, redirect
-from pymongo import MongoClient
-from bson.objectid import ObjectId
-import home, contact, rate_limits, others, todos
+from flask import Flask
 
+import contact
+import home
+import others
+import rate_limits
+import todos
 
 app = Flask(__name__)
 PATH = '/flaskapi/v1'

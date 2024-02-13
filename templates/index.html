@@ -20,8 +20,10 @@
             <b><label for="content">Todo content</label></b>
         </p>
         <p>
-            <input type="text" name="content"
-                placeholder="Todo Content"></input>
+            <label>
+                <input type="text" name="content"
+                    placeholder="Todo Content">
+            </label>
         </p>
 
         <p>
@@ -42,7 +44,7 @@
     {% for todo in todos %}
         <div class="todo">
             <p>{{ todo['content'] }} <i>({{ todo['degree']}})</i></p>
-	    <form method="POST" action="{{ url_for('todos.delete', id=todo['_id']) }}" >
+	    <form method="POST" action="{{ url_for('todos.delete', oid=todo['_id']) }}" >
                 <input type="submit" value="Delete Todo"
                        onclick="return confirm('Are you sure you want to delete this entry?')">
             </form>

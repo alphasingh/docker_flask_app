@@ -6,7 +6,7 @@ from bson.objectid import ObjectId
 
 app = Flask(__name__)
 PATH = '/flaskapi/v1'
-client = MongoClient('129.153.51.240', 5907, username='mongoadmin', password='secret')
+client = MongoClient('100.101.50.51', 27017, username='admin', password='pass')
 db = client.flask_db
 todos = db.todos
 
