@@ -65,5 +65,6 @@ sudo kill -9 <PID>
 # some dependencies with docs followed
 - Install flask: https://linuxize.com/post/how-to-install-flask-on-ubuntu-20-04/
 - Rate imiter for APIs: https://flask-limiter.readthedocs.io/en/stable/
-- Dockerize your flask app: https://www.freecodecamp.org/news/how-to-dockerize-a-flask-app/ 
+- Dockerize your flask app: https://www.freecodecamp.org/news/how-to-dockerize-a-flask-app/
+- Use pycharm: https://www.jetbrains.com/help/pycharm/creating-web-application-with-flask.html
 - Use MongoDB: https://www.digitalocean.com/community/tutorials/how-to-use-mongodb-in-a-flask-application
