@@ -11,6 +11,10 @@ git clone https://github.com/alphasingh/docker_flask_app.git
 ```
 cd ~/backend/docker_flask_app
 ```
+4. update your mongo credentials in `todos.py`
+```
+client = MongoClient('100.101.50.51', 27017, username='user', password='pass')
+```
 
 # if you have docker installed, use these commands to manage the app
 1. command to build the flask app with docker
