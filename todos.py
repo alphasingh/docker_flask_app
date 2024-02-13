@@ -49,6 +49,6 @@ def delete(id):
 def get_all_todos_from_db():
     # all_todo_items = todos.find()
     all_todo_items = [parse_todo_doc(doc) for doc in todos.find()]
-    json_response = {'todos': all_todo_items, 'updated': '11 MAY 2022'}
+    json_response = {'todos': all_todo_items, 'updated': '13 FEB 2024'}
     json_headers = {'Access-Control-Allow-Origin': '*'}
     return json_response, 200, json_headers
