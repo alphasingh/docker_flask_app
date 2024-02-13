@@ -9,6 +9,6 @@ def hello():
             'status': 'OK', 
             'Blueprint': 'others_bp', 
             'created':'22 April 2022', 
-            'updated':'11 MAY 2022', 
+            'updated':'13 FEB 2024', 
             'author':'Abhay'
             }
