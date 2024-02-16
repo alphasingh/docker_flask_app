@@ -15,19 +15,23 @@ limiter = Limiter(
     default_limits=["200 per day", "50 per hour"]
 )
 
+
 @rate_limits_bp.route('/slow')
 @limiter.limit("1 per day")
 def slow():
     return ":("
+
 
 @rate_limits_bp.route("/medium")
 @limiter.limit("1/second", override_defaults=False)
 def medium():
     return ":|"
 
+
 @rate_limits_bp.route("/fast")
 def fast():
     return ":)"
+
 
 @rate_limits_bp.route("/ping")
 @limiter.exempt
