@@ -1,11 +1,13 @@
 from flask import render_template, request, url_for, redirect, Blueprint
 from pymongo import MongoClient
 from bson.objectid import ObjectId
+from datetime import datetime
 
 bp = Blueprint('todos', __name__)
 
 
-client = MongoClient('localhost', 27017)
+#client = MongoClient('localhost', 27017)
+client = MongoClient('mongo-net', 27017, username='mongoadmin', password='secret')
 db = client.flask_db
 todos = db.todos
 
@@ -14,8 +16,9 @@ def parse_todo_doc(__doc):
     return {
         'id': __doc.get('id', 1),
         'task': __doc.get('task', 'Task'),
-        'isCompleted': __doc.get('isCompleted', True)
-    }
+        'isCompleted': __doc.get('isCompleted', True),
+        'createdOn': __doc.get('createdOn', '2024-09-26 21:57')
+        }
 
 
 @bp.route('/ui', methods=('GET', 'POST'))
@@ -29,7 +32,8 @@ def index():
             'content': content,
             'degree': degree,
             'task': content,
-            'isCompleted': is_todo_completed
+            'isCompleted': is_todo_completed,
+            'createdOn': str(datetime.now())
         }
         todos.insert_one(new_todo)
         return redirect(url_for('todos.index'))
