@@ -17,7 +17,7 @@ def parse_todo_doc(__doc):
         'id': __doc.get('id', 1),
         'task': __doc.get('task', 'Task'),
         'isCompleted': __doc.get('isCompleted', True),
-        'createdOn': __doc.get('createdOn', '2024-09-26 21:57')
+        'createdOn': __doc.get('createdOn', '1990-09-09 09:09')
         }
 
 
@@ -52,6 +52,6 @@ def delete(oid):
 def get_all_todos_from_db():
     # all_todo_items = todos.find()
     all_todo_items = [parse_todo_doc(doc) for doc in todos.find()]
-    json_response = {'todos': all_todo_items, 'updated': '13 FEB 2024'}
+    json_response = {'todos': all_todo_items, 'updated': '27 SEP 2024'}
     json_headers = {'Access-Control-Allow-Origin': '*'}
     return json_response, 200, json_headers
