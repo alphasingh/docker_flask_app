@@ -1,0 +1,89 @@
+body {
+    /*background-image: url('../images/wallpaper.jpg');*/
+    background-image: radial-gradient(circle, dodgerblue, lightblue);
+    background-size: cover; /* Ensures the image covers the entire screen */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+}
+
+.todo {
+    padding: 1%;
+    margin: 1%;
+    /*border-radius: 1%;*/
+    box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.2);
+    background-color: #eee;
+}
+
+.plus-sign {
+    position: absolute;
+    top: 20px; /* Adjust the distance from the top */
+    right: 20px; /* Adjust the distance from the right */
+    font-size: 50px; /* Size of the plus sign */
+    font-weight: bold;
+    color: white; /* Color of the plus sign */
+    cursor: pointer;
+}
+/* Hover effect */
+.plus-sign:hover {
+    color: dodgerblue;
+}
+/*
+body {
+    height: 100vh;
+    margin: 0;
+    position: relative;
+    font-family: Arial, sans-serif;
+}*/
+.plus-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 30px;
+    padding: 10px 20px;
+    background-color: dodgerblue;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 5px 5px 10px #a3a3a3, /* Bottom right shadow */
+    -5px -5px 10px #ffffff; /* Top left highlight */
+    transition: all 0.3s; /* Smooth transition for hover effects */
+}
+
+/* Modal Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: white;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 300px; /* Could be more or less, depending on screen size */
+    border-radius: 10px;
+}
+
+/* Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
