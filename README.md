@@ -21,9 +21,9 @@ client = MongoClient('100.101.50.51', 27017, username='user', password='pass')
 ```
 docker build --tag python-docker .
 ```
-2. command to run the flask API with docker
+2. command to run the flask API with docker inside network where mongodb exists
 ```
-docker run -d -p 5909:5909 --name fapi python-docker
+docker run -d -p 5909:5909 --network l-net --name fapi python-docker
 ```
 3. preview output of docker ps to check app status with docker
 ```
