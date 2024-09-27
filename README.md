@@ -15,6 +15,10 @@ cd ~/backend/docker_flask_app
 ```
 client = MongoClient('100.101.50.51', 27017, username='user', password='pass')
 ```
+5. you can check or add link to CSS if hosting
+```
+ls -lrt /var/www/alphasingh.com/static/css/styles.css
+```
 
 # if you have docker installed, use these commands to manage the app
 1. command to build the flask app with docker
